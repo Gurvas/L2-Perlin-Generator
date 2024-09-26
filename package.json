@@ -1,0 +1,11 @@
+{
+  "name": "l2-perlin-generator",
+  "version": "1.0.0",
+  "description": "A perlin noise generator module.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gustav Larsson <gl222pp@student.lnu.se>",
+  "license": "MIT"
+}
