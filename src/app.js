@@ -1,6 +1,6 @@
-import { PerlinGenerator } from "./PerlinGenerator.js"
+import { PerlinNoiseGenerator } from './PerlinNoiseGenerator.js'
 
-const Generator = new PerlinGenerator()
+const Generator = new PerlinNoiseGenerator()
 
 Generator.generateNoise()
 
