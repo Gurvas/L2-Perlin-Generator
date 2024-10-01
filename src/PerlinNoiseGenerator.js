@@ -3,7 +3,6 @@
 import { NoiseMatrix } from './NoiseMatrix.js'
 import { Gradient } from './Gradient.js'
 import { Interpolation } from './Interpolation.js'
-import { RandomGenerator } from './RandomGenerator.js'
 
 
 export class PerlinNoiseGenerator {
@@ -15,14 +14,16 @@ export class PerlinNoiseGenerator {
   constructor(seed = Math.random()) {
     this.#seed = seed
     this.#noiseMatrix = new NoiseMatrix()
-    this.#gradient = new Gradient()
+    this.#gradient = new Gradient() 
     this.#interpolation = new Interpolation()
   }
   
   generateNoise() {
     console.log('generating some noise')
     
-    this.#noiseMatrix.createMatrix()
+    this.#noiseMatrix.setHeightAndWidth(10, 10)
+    const matrix = this.#noiseMatrix.createMatrix()
+    const matrix2D = this.#noiseMatrix.getMatrixAs2DArray()
   }
 	
 }

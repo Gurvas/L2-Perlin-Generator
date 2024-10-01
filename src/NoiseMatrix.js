@@ -1,18 +1,20 @@
-import { RandomGenerator } from "./RandomGenerator"
+import { RandomGenerator } from "./RandomGenerator.js"
 
 export class NoiseMatrix {
   #height
   #width
+  #matrix
 
   createMatrix() {
     if (!Number.isInteger(this.#height) || !Number.isInteger(this.#width)) {
       throw new Error('No width or height selected (should be integers)')
     }
-    const matrix = []
-    for (let i = 0; i < this.width; i++) {
-      matrix.push(this.createMatrixRow())
+    this.#matrix = []
+    const totalElements = this.#height * this.#width
+    for (let i = 0; i < totalElements; i++) {
+      this.#matrix.push(this.#generateRandomValue())
     }
-    return matrix
+    return this.#matrix
   }
 
   setHeightAndWidth(height, width) {
@@ -20,12 +22,13 @@ export class NoiseMatrix {
     this.#width = width
   }
 
-  createMatrixRow() {
-    const row = []
+  getMatrixAs2DArray() {
+    const matrix2D = []
     for (let i = 0; i < this.#height; i++) {
-      row.push(this.#generateRandomValue())
+      const row = this.#matrix.slice(i * this.#width, (i +1) * this.#width)
+      matrix2D.push(row)
     }
-    return row
+    return matrix2D
   }
 
   #generateRandomValue() {
