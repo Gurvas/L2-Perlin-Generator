@@ -1,8 +1,10 @@
 import { Interpolation } from '../src/Interpolation'
-import { jest } from '@jest/globals'
 
 test('should connect two values through a factor', () => {
   const interpolator = new Interpolation
-  const result = interpolator.linearInterpolate(2, 5, 2)
-  expect(typeof result).toBe('number')
+  const startPoint = { x: 2, y: 3 }
+  const endPoint = { x: 5, y: 7 }
+  const interpolationFactor = 0.5
+  const result = interpolator.linearInterpolate2D(startPoint, endPoint, interpolationFactor)
+  expect(result).toEqual({ x: 3.5, y:5 })
 })
