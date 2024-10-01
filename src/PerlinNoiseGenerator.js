@@ -16,7 +16,7 @@ export class PerlinNoiseGenerator {
   constructor(seed = Math.random()) {
     this.#seed = seed
     this.#noiseMatrix = new NoiseMatrix()
-    this.#gradient = new Gradient(seed)
+    this.#gradient = new Gradient()
     this.#interpolation = new Interpolation()
     this.#randomGenerator = new RandomGenerator()
   }
