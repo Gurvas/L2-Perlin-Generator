@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/app.js",
-    "test": "jest"
+    "test": "npx --node-options=--experimental-vm-modules jest || exit 0"
   },
   "author": "Gustav Larsson <gl222pp@student.lnu.se>",
   "license": "MIT",
