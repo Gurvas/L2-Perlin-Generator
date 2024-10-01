@@ -28,7 +28,7 @@ export class PerlinNoiseGenerator {
   }
 
   setMatrixDimensions(height, width) {
-    this.#noiseMatrix.setHeightAndWidth(height, weight)
+    this.#noiseMatrix.setHeightAndWidth(height, width)
   }
 
   setSeedValue(seed) {
@@ -43,6 +43,8 @@ export class PerlinNoiseGenerator {
       for (let x = 0; x < width; x++) {
         row.push(this.#gradient.generateGradientFromTwoIntegers(x, y))
       }
+      gradients.push(row)
     }
+    return gradients
   }
 }
