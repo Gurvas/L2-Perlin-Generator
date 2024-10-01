@@ -11,14 +11,12 @@ export class PerlinNoiseGenerator {
   #noiseMatrix
   #gradient
   #interpolation
-  #randomGenerator
 
   constructor(seed = Math.random()) {
     this.#seed = seed
     this.#noiseMatrix = new NoiseMatrix()
     this.#gradient = new Gradient()
     this.#interpolation = new Interpolation()
-    this.#randomGenerator = new RandomGenerator()
   }
   
   generateNoise() {
