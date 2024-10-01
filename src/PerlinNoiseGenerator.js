@@ -18,12 +18,31 @@ export class PerlinNoiseGenerator {
     this.#interpolation = new Interpolation()
   }
   
-  generateNoise() {
+  generateNoise(height, width) {
     console.log('generating some noise')
     
-    this.#noiseMatrix.setHeightAndWidth(10, 10)
     const matrix = this.#noiseMatrix.createMatrix()
     const matrix2D = this.#noiseMatrix.getMatrixAs2DArray()
+
+    const gradients = this.#generateGradients(height, width)
+  }
+
+  setMatrixDimensions(height, width) {
+    this.#noiseMatrix.setHeightAndWidth(height, weight)
+  }
+
+  setSeedValue(seed) {
+    this.#seed = seed
+    this.#gradient.setSeed(seed)
   }
 	
+  #generateGradients(height, width) {
+    const gradients = []
+    for (let y = 0; y < height; y++) {
+      const row = []
+      for (let x = 0; x < width; x++) {
+        row.push(this.#gradient.generateGradientFromTwoIntegers(x, y))
+      }
+    }
+  }
 }
